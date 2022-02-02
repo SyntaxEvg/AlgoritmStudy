@@ -6,10 +6,10 @@ using System.Linq;
 internal class Program
 {
     static void Main(string[] args)
-    { //Запросить у пользователя минимальную и максимальную температуру
-      //за сутки и вывести среднесуточную температуру.
-        Console.WriteLine("Выбрать Домашка от 1 до  1 или 6- если хотите выйти из программы");
-        Console.WriteLine("Двусвязный список");
+    { 
+      
+        Console.WriteLine("Выбрать задания от 1 до 1 или 6- если хотите выйти из программы");
+        Console.WriteLine("1)Двусвязный список");
         while (true)
         {
             var temp = Console.ReadLine();
@@ -23,18 +23,6 @@ internal class Program
                         // Двусвязный список
                         LinkedListNew();
                         break;
-                    //case 2:
-                    //    //"Запросить у пользователя порядковый номер текущего месяца и вывести его название"
-                    //    RequestMount();
-                    //    break;
-                    //case 3:
-                    //    //"Определить, является ли введённое пользователем число чётным";
-                    //    EvenCount();
-                    //    break;
-                    //case 4:
-                    //    break;
-                    //case 5:
-                    //    break;
                     case 6:
                         Environment.Exit(0);
                         break;
