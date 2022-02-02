@@ -41,7 +41,7 @@ internal class Program
     /// <summary>
     /// LinkedListNew работа с листом
     /// </summary>
-    public static void LinkedListNew()//можно юзать  и другой сборки  
+    public static void LinkedListNew()//можно юзать  из другой сборки  
     {
         Algoritm.LInkL.LinkedList<string> ListLink = new Algoritm.LInkL.LinkedList<string>();
         //можно  и юзерам чере вввод  сделать и через Enum, но зачем  
@@ -95,20 +95,7 @@ internal class Program
                     break;
             }
         }
-
-
-
-        ListLink.AddNode("Евгений");
-        ListLink.AddNode("Cерафим");
-        ListLink.AddNode("Алик");
-        ListLink.AddNode("Кира");
-        ListLink.AddNode("Сергей");
-        int count = ListLink.GetCount();//// возвращает количество элементов в списке
-        ListLink.AddNodeAfter(ListLink.First, "Костя");
-        ListLink.RemoveNode("Евгений");//по значению 
-        ListLink.RemoveNode(ListLink.Last);//по  элементы
-        ListLink.FindNode("Николай");// ищет элемент по его значению
-        count = ListLink.GetCount();//// возвращает количество элементов в списке
+        Console.WriteLine("Вывод всего листа");
         foreach (var person in ListLink)
         {
             Console.WriteLine(person);
