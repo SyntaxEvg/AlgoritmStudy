@@ -8,7 +8,7 @@ internal class Program
     static void Main(string[] args)
     { 
       
-        Console.WriteLine("Выбрать задания от 1 до 1 или 6- если хотите выйти из программы");
+        Console.WriteLine("Выбрать задания от 1 до 2 или 6- если хотите выйти из программы");
         Console.WriteLine("1)Двусвязный список");
         while (true)
         {
@@ -21,8 +21,11 @@ internal class Program
                 {
                     case 1:
                         // Двусвязный список
-                        LinkedListNew();
+                        LinkedListNew(); break;
+                    case 2:
+                        new PointStructDoubleClass();
                         break;
+  
                     case 6:
                         Environment.Exit(0);
                         break;
