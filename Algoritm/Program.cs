@@ -1,4 +1,5 @@
 ﻿
+using BenchmarkDotNet.Running;
 using GeekBrainsTests;
 using System.Collections.Concurrent;
 using System.Linq;
@@ -10,6 +11,7 @@ internal class Program
       
         Console.WriteLine("Выбрать задания от 1 до 2 или 6- если хотите выйти из программы");
         Console.WriteLine("1)Двусвязный список");
+        Console.WriteLine("2)PointStructDouble");
         while (true)
         {
             var temp = Console.ReadLine();
@@ -23,7 +25,8 @@ internal class Program
                         // Двусвязный список
                         LinkedListNew(); break;
                     case 2:
-                        new PointStructDoubleClass();
+                        BenchmarkRunner.Run<PointStructDoubleClassOrStruct>();
+                     
                         break;
   
                     case 6:
