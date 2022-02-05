@@ -7,8 +7,8 @@ using System.Linq;
 internal class Program
 {
     static void Main(string[] args)
-    { 
-      
+    {
+
         Console.WriteLine("Выбрать задания от 1 до 2 или 6- если хотите выйти из программы");
         Console.WriteLine("1)Двусвязный список");
         Console.WriteLine("2)PointStructDouble");
@@ -26,9 +26,9 @@ internal class Program
                         LinkedListNew(); break;
                     case 2:
                         BenchmarkRunner.Run<PointStructDoubleClassOrStruct>();
-                     
+
                         break;
-  
+
                     case 6:
                         Environment.Exit(0);
                         break;
