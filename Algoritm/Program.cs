@@ -48,6 +48,7 @@ internal class Program
             new LinkedListNewClass(),
             new PointStructDoubleClassOrStructRUN(),
             new HashSetClass(),
+            new TreeClass(),
             //служебный класс его не учитываем в реализации
             new ExitClass(),
 
