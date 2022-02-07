@@ -1,4 +1,7 @@
 ﻿
+using Algoritm;
+using Algoritm.Lesson2;
+using Algoritm.Lesson2.PointStructDoubleClassOrStruct;
 using BenchmarkDotNet.Running;
 using GeekBrainsTests;
 using System.Collections.Concurrent;
@@ -8,10 +11,16 @@ internal class Program
 {
     static void Main(string[] args)
     {
-
-        Console.WriteLine("Выбрать задания от 1 до 2 или 6- если хотите выйти из программы");
-        Console.WriteLine("1)Двусвязный список");
-        Console.WriteLine("2)PointStructDouble");
+        //получаем все дз что у нас есть 
+        //Ilesson  ilesson = null;
+        List<Ilesson> TaskDZ = new();
+        TaskDZ.Add(new LinkedListNewClass());
+        TaskDZ.Add(new PointStructDoubleClassOrStructRUN());
+        Console.WriteLine($"Выбрать задания от 1 до {TaskDZ.Count} или {new ExitClass().id}- если хотите выйти из программы");
+        foreach (var item in TaskDZ)
+        {
+            Console.WriteLine($"{item.id}){item.Descprition}");
+        }
         while (true)
         {
             var temp = Console.ReadLine();
@@ -19,96 +28,18 @@ internal class Program
             int.TryParse(temp, out count);
             if (count != 0)
             {
-                switch (count)
+                var ok = TaskDZ.FirstOrDefault(x => x.id == count);
+
+               
+                if (ok is not null)
                 {
-                    case 1:
-                        // Двусвязный список
-                        LinkedListNew(); break;
-                    case 2:
-                        BenchmarkRunner.Run<PointStructDoubleClassOrStruct>();
+                    ok.RUN();
 
-                        break;
-
-                    case 6:
-                        Environment.Exit(0);
-                        break;
-                    default:
-                        break;
                 }
-            }
+                else
+                    Console.WriteLine("Not DZ");
 
-        }
-
-
-
-
-
-    }
-    /// <summary>
-    /// LinkedListNew работа с листом
-    /// </summary>
-    public static void LinkedListNew()//можно юзать  из другой сборки  
-    {
-        Algoritm.LInkL.LinkedList<string> ListLink = new Algoritm.LInkL.LinkedList<string>();
-        //можно  и юзерам чере вввод  сделать и через Enum, но зачем  
-        Console.WriteLine("Работа со списком, команды /6 Exit");
-        Console.WriteLine("0) AddNode(T value); добавляет новый элемент списка");
-        Console.WriteLine("1) GetCount();возвращает количество элементов в списке");
-        Console.WriteLine("2) AddNodeAfter();  добавляет новый элемент списка после определённого элемента");
-        Console.WriteLine("3) RemoveNode(T index); удаляет элемент по порядковому номеру");
-        Console.WriteLine("4) RemoveNode(); удаляет указанный элемент");
-        Console.WriteLine("5) FindNode(T searchValue); ищет элемент по его значению");
-        while (true)
-        {
-            var key = Console.ReadKey().Key;
-            switch (key)
-            {
-                case ConsoleKey.NumPad0:
-                case ConsoleKey.D0:
-                    {
-                        Console.WriteLine("Добавить новый элемент списка");
-                        var STR = Console.ReadLine();
-                        if (STR.Length > 0)
-                        {
-                            ListLink.AddNode(STR);
-                        }
-                    }
-                    break;
-                case ConsoleKey.D1:
-                case ConsoleKey.NumPad1:
-                    Console.WriteLine($"Count List {ListLink.GetCount()}");
-                    break;
-                case ConsoleKey.D2:
-                case ConsoleKey.NumPad2:
-                    //AddNodeAfter(); добавляет новый элемент списка после определённого элемента");
-                    ListLink.AddNodeAfter(ListLink.First, "Костя");
-                    break;
-                case ConsoleKey.D3:
-                case ConsoleKey.NumPad3:
-                    ListLink.RemoveNode("Евгений");//по значению 
-                    break;
-                case ConsoleKey.D4:
-                case ConsoleKey.NumPad4:
-                    ListLink.RemoveNode(ListLink.Last);//по  элементы
-                    break;
-                case ConsoleKey.D5:
-                case ConsoleKey.NumPad5:
-                    ListLink.FindNode("Николай");// ищет элемент по его значению
-                    break;
-                case ConsoleKey.D6:
-                case ConsoleKey.NumPad6:
-                    Environment.Exit(0);
-                    break;
             }
         }
-        Console.WriteLine("Вывод всего листа");
-        foreach (var person in ListLink)
-        {
-            Console.WriteLine(person);
-        }
-
-
-
-
     }
 }
