@@ -59,8 +59,8 @@ namespace Algoritm.Lesson2.PointStructDoubleClassOrStruct
             var yD = r.NextDouble();
             PointStructDouble point = new()
             {
-                X = (float)xD,
-                Y = (float)yD
+                X = xD,
+                Y = yD
             };
             return point;
         }
