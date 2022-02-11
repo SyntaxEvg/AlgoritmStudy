@@ -115,14 +115,14 @@ internal class DFSandBFS : Ilesson
 
     IEnumerable<int> ConsoleReadLineTree()//одинаковы метод для трех поз
     {
-            var s = String.Intern(Console.ReadLine());
-            var spitStr = s.Split(' ');
-            int number = 0;
-            foreach (var n in spitStr)
-            {
-                int.TryParse(n, out number);
-                yield return number;
-                number = 0;
+        var s = String.Intern(Console.ReadLine());
+        var spitStr = s.Split(' ');
+        int number = 0;
+        foreach (var n in spitStr)
+        {
+            int.TryParse(n, out number);
+            yield return number;
+            number = 0;
         }
     }
 

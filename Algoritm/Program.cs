@@ -13,11 +13,11 @@ internal class Program
     {
         //получаем все дз что у нас есть 
         //Ilesson  ilesson = null;
-      
+
         List<Ilesson> TaskDZ = null;
         MGetTasks(out TaskDZ);//при появление новых дз дописывать в этот метод
 
-        Console.WriteLine($"Выбрать задания от {TaskDZ.First().id} до {TaskDZ.Count-1} или {TaskDZ.Last().id}- если хотите выйти из программы");
+        Console.WriteLine($"Выбрать задания от {TaskDZ.First().id} до {TaskDZ.Count - 1} или {TaskDZ.Last().id}- если хотите выйти из программы");
         foreach (var item in TaskDZ)
         {
             Console.WriteLine($"{item.id}){item.Descprition}");
@@ -29,7 +29,7 @@ internal class Program
             int.TryParse(temp, out count);
             if (count != 0)
             {
-                var ok = TaskDZ.FirstOrDefault(x => x.id == count);              
+                var ok = TaskDZ.FirstOrDefault(x => x.id == count);
                 if (ok is not null)
                 {
                     ok.RUN();
