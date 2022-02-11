@@ -49,6 +49,7 @@ internal class Program
             new PointStructDoubleClassOrStructRUN(),
             new HashSetClass(),
             new TreeClass(),
+            new DFSandBFS(),
             //служебный класс его не учитываем в реализации
             new ExitClass(),
 

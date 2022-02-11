@@ -113,6 +113,79 @@ namespace Algoritm.Lesson4
         {
             Print(Head);
         }
+        /// <summary>
+        /// Поиск по дереву в глубину
+        /// </summary>
+        internal TreeNode SearhDFS(int number)
+        {
+            Console.WriteLine($"Searh num {number}");
+            Stack<TreeNode> stack = new();
+          
+            stack.Push(Head);//на верх стека
+
+            while (true)
+            {
+                if (stack.Count > 0)
+                {
+                    Console.WriteLine($"сейчас в cтеке {stack.Count}");
+                    var node = stack.Pop();
+                    Console.WriteLine($"{node.Value == number}");
+                    if (node.Value == number)
+                    {
+                        Console.WriteLine("Искомое значенеи найдено, возвращаем узел дерева.");
+                        return node;
+                    }
+                    if (node.LeftChild is not null)
+                    {
+                        Console.WriteLine("add LeftChild");
+                        stack.Push(node.LeftChild);
+                    }
+                    if (node.RightChild is not null)
+                    {
+                        Console.WriteLine("add RightChild");
+                        stack.Push(node.RightChild);
+                    }
+                }
+                else break;               
+            }
+            return null;
+        }
+        /// <summary>
+        ///  Поиск по дереву в ширину
+        /// </summary>
+        internal TreeNode SearhBFS(int number)
+        {
+            Console.WriteLine($"Searh num {number}");
+            var queue = new Queue<TreeNode>();
+            queue.Enqueue(Head);
+
+            while (true)
+            {
+                if (queue.Count > 0)
+                {
+                    Console.WriteLine($"count Queue {queue.Count}");
+                    var node = queue.Dequeue();
+                    Console.WriteLine($"{node.Value == number}");
+                    if (node.Value == number)
+                    {
+                        Console.WriteLine("Искомое значенеи найдено, возвращаем узел дерева.");
+                        return node;
+                    }
+                    if (node.LeftChild is not null)
+                    {
+                        Console.WriteLine("add LeftChild");
+                        queue.Enqueue(node.LeftChild);
+                    }
+                    if (node.RightChild is not null)
+                    {
+                        Console.WriteLine("add RightChild");
+                        queue.Enqueue(node.RightChild);
+                    }
+                }
+                else break;
+            }
+            return null;
+        }
 
         /// <summary>
         /// Вывод дерева
