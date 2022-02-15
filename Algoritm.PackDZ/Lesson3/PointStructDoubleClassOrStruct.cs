@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Algoritm.Lesson2.PointStructDoubleClassOrStruct
 {
-    internal class PointStructDoubleClassOrStructRUN : Ilesson
+    public class PointStructDoubleClassOrStructRUN : Ilesson
     {
         public int id { get => 2; }
         public string Descprition { get => "PointStructDoubleClassOrStruct"; }

@@ -1,5 +1,6 @@
 ﻿
 using Algoritm;
+using Algoritm.Common;
 using Algoritm.Lesson2;
 using Algoritm.Lesson2.PointStructDoubleClassOrStruct;
 using BenchmarkDotNet.Running;
@@ -9,8 +10,11 @@ using System.Linq;
 
 internal class Program
 {
+    public static IConsole_ReadLine CR = new AlgoritmBaseConsole();
     static void Main(string[] args)
     {
+        
+
         //получаем все дз что у нас есть 
         //Ilesson  ilesson = null;
 

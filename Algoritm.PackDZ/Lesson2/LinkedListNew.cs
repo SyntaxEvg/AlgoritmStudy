@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Algoritm.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,9 @@ using System.Threading.Tasks;
 
 namespace Algoritm.Lesson2
 {
-    internal class LinkedListNewClass : Ilesson
+
+
+    public class LinkedListNewClass : Ilesson
     {
         public int id { get => 1; }
         public string Descprition { get => "Двусвязный список"; }
@@ -39,6 +42,9 @@ namespace Algoritm.Lesson2
                     case ConsoleKey.D0:
                         {
                             Console.WriteLine("Добавить новый элемент списка");
+                            
+                           var g= CR.ConsoleReadLine();
+                           var d = new AlgoritmBaseConsole().ConsoleReadLine();
                             var STR = Console.ReadLine();
                             if (STR.Length > 0)
                             {
