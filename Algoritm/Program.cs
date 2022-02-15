@@ -29,7 +29,7 @@ internal class Program
                         Ilesson ClassTypeLib = (Ilesson)Activator.CreateInstance(type);
                         if (ClassTypeLib is not null)
                         {
-                            GetTasks(ref TaskDZ, ClassTypeLib);////при появление новых дз дописывать в этот метод
+                            GetTasks(ref TaskDZ, ClassTypeLib);
                         }
                 }
             }
@@ -77,6 +77,12 @@ internal class Program
 
     //    };
     //}
+    /// <summary>
+    ///  Метод добавляет  в список типы классов
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="TaskDZ"></param>
+    /// <param name="ClassTypeLib"></param>
     static void GetTasks<T>(ref List<Ilesson> TaskDZ, T ClassTypeLib) where T : Ilesson
     {
         TaskDZ.Add(ClassTypeLib);
