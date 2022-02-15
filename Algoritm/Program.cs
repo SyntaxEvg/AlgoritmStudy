@@ -26,16 +26,11 @@ internal class Program
             {
                 foreach (Type item in type.GetInterfaces())
                 {
-                    if (item.Name == NameInterface)
-                    {
-                        Console.WriteLine(type.FullName);
-
                         Ilesson ClassTypeLib = (Ilesson)Activator.CreateInstance(type);
                         if (ClassTypeLib is not null)
                         {
-                            GetTaskss(ref TaskDZ, ClassTypeLib);////при появление новых дз дописывать в этот метод
+                            GetTasks(ref TaskDZ, ClassTypeLib);////при появление новых дз дописывать в этот метод
                         }
-                    }
                 }
             }
         }
@@ -82,7 +77,7 @@ internal class Program
 
     //    };
     //}
-    static void GetTaskss<T>(ref List<Ilesson> TaskDZ, T ClassTypeLib) where T : Ilesson
+    static void GetTasks<T>(ref List<Ilesson> TaskDZ, T ClassTypeLib) where T : Ilesson
     {
         TaskDZ.Add(ClassTypeLib);
     }
