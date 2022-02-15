@@ -1,8 +1,10 @@
 ﻿using Algoritm;
+using Algoritm.Common;
 using Algoritm.Lesson4;
 
-internal class DFSandBFS : Ilesson
+public class DFSandBFS : Ilesson
 {
+    public static IConsole_ReadLine CR = new AlgoritmBaseConsole();
     //Реализуйте класс двоичного дерева поиска с операциями вставки, удаления, поиска.
     ///Дерево должно быть сбалансированным(это требование не обязательно).
     /// Также напишите метод вывода в консоль дерева, чтобы увидеть, насколько корректно работает ваша реализация.
@@ -25,7 +27,7 @@ internal class DFSandBFS : Ilesson
                 int.TryParse(spitStr[1], out numM);
                 if (l > 0 && numM > 0)
                 {
-                    MTree(ref l, ref numM);
+                    Tree(ref l, ref numM);
                 }
 
             }
@@ -36,17 +38,10 @@ internal class DFSandBFS : Ilesson
         }
     }
 
-    private void MTree(ref int l, ref int numM)
+    private void Tree(ref int l, ref int numM)
     {
-        Tree tree = new Tree(l, numM);
-        Console.WriteLine("Commands");
-        Console.WriteLine("0)Показать дерево");
-        Console.WriteLine("1)add node");
-        Console.WriteLine("2)Remove node");
-        Console.WriteLine("3)Get node on");
-        Console.WriteLine("4)Seacrh Item");
-        Console.WriteLine("5)поиск в ширину");
-        Console.WriteLine("6)поиск в глубину");
+        Tree tree = new(l, numM);
+        Console_WCommands();   
         while (true)
         {
             var a = Console.ReadKey();
@@ -82,6 +77,19 @@ internal class DFSandBFS : Ilesson
         }
         Console.ReadKey();
     }
+
+    private void Console_WCommands()
+    {
+        Console.WriteLine("Commands");
+        Console.WriteLine("0)Показать дерево");
+        Console.WriteLine("1)add node");
+        Console.WriteLine("2)Remove node");
+        Console.WriteLine("3)Get node on");
+        Console.WriteLine("4)Seacrh Item");
+        Console.WriteLine("5)поиск в ширину");
+        Console.WriteLine("6)поиск в глубину");
+    }
+
     /// <summary>
     /// поиск в глубину
     /// </summary>

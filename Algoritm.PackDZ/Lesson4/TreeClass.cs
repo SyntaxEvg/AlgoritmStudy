@@ -1,7 +1,7 @@
 ﻿using Algoritm;
 using Algoritm.Lesson4;
 
-internal class TreeClass : Ilesson
+public class TreeClass : Ilesson
 {
     //Реализуйте класс двоичного дерева поиска с операциями вставки, удаления, поиска.
     ///Дерево должно быть сбалансированным(это требование не обязательно).

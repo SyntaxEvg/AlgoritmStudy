@@ -42,8 +42,7 @@ namespace Algoritm.Lesson2
                     case ConsoleKey.D0:
                         {
                             Console.WriteLine("Добавить новый элемент списка");
-                            
-                           var g= CR.ConsoleReadLine();
+                                                      
                            var d = new AlgoritmBaseConsole().ConsoleReadLine();
                             var STR = Console.ReadLine();
                             if (STR.Length > 0)

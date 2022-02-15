@@ -12,5 +12,17 @@ namespace Algoritm.Common
         {
            return Console.ReadLine();
         }
+
+        public virtual int TryParseCR()
+        {
+            var temp = String.Intern(Console.ReadLine());
+            int count = 0;
+            int.TryParse(temp, out count);
+            if (count != 0)
+            {
+                return count;
+            }
+            return 0;
+        }
     }
 }
