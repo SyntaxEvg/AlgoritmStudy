@@ -18,7 +18,7 @@ internal class Program
         List<Ilesson> TaskDZ = new();
         //если что-то не работает положить все в папку с прогой 
         Assembly assembly = Assembly.LoadFrom("Algoritm.PackDZ.dll");
-        string NameInterface = nameof(Ilesson);
+        //string NameInterface = nameof(Ilesson);
         if (assembly is not null)
         {
             var types = assembly.GetTypes();//.Select(x => x.);
