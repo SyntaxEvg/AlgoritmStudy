@@ -13,14 +13,12 @@ internal class Program
 {
     public static IConsole_ReadLine CR = new AlgoritmBaseConsole();
     static void Main(string[] args)
-    {  
+    {
         //получаем все дз что у нас есть 
-        //Ilesson  ilesson = null;
         List<Ilesson> TaskDZ = new();
         //если что-то не работает положить все в папку с прогой 
-        Assembly  assembly = Assembly.LoadFrom("Algoritm.PackDZ.dll");
-        string NameInterface = "Ilesson";
-        Ilesson ilesson;
+        Assembly assembly = Assembly.LoadFrom("Algoritm.PackDZ.dll");
+        string NameInterface = nameof(Ilesson);
         if (assembly is not null)
         {
             var types = assembly.GetTypes();//.Select(x => x.);
@@ -28,8 +26,6 @@ internal class Program
             {
                 foreach (Type item in type.GetInterfaces())
                 {
-                    var t =item is Ilesson;
-                    //if (t)
                     if (item.Name == NameInterface)
                     {
                         Console.WriteLine(type.FullName);
@@ -39,25 +35,24 @@ internal class Program
                         {
                             GetTaskss(ref TaskDZ, ClassTypeLib);////при появление новых дз дописывать в этот метод
                         }
-                       
-
                     }
                 }
-               
-            }          
+            }
         }
         else
         {
+            Console.WriteLine("Not Assamble");
+            Console.ReadLine();
             return;
         }
-      
+
         Console.WriteLine($"Выбрать задания от {TaskDZ.First().id} до {TaskDZ.Count - 1} или {TaskDZ.Last().id}- если хотите выйти из программы");
         foreach (var item in TaskDZ)
         {
             Console.WriteLine($"{item.id}){item.Descprition}");
         }
         while (true)
-        {            
+        {
             int count = Program.CR.TryParseCR();
             if (count != 0)
             {
@@ -87,7 +82,7 @@ internal class Program
 
     //    };
     //}
-    static void GetTaskss<T>(ref List<Ilesson> TaskDZ, T ClassTypeLib) where T:Ilesson
+    static void GetTaskss<T>(ref List<Ilesson> TaskDZ, T ClassTypeLib) where T : Ilesson
     {
         TaskDZ.Add(ClassTypeLib);
     }
