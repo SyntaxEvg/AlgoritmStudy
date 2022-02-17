@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Algoritm
 {
-    internal class ExitClass : Ilesson
+    public class ExitClass : Ilesson
     {
         public int id => 9;
 
