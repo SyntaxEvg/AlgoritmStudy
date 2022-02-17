@@ -16,9 +16,8 @@ internal class Program
     {
         //получаем все дз что у нас есть 
         List<Ilesson> TaskDZ = new();
-        //если что-то не работает положить все в папку с прогой 
+        //если что-то не работает положить dll в папку с прогой 
         Assembly assembly = Assembly.LoadFrom("Algoritm.PackDZ.dll");
-        //string NameInterface = nameof(Ilesson);
         if (assembly is not null)
         {
             var types = assembly.GetTypes();//.Select(x => x.);
@@ -48,10 +47,10 @@ internal class Program
         }
         while (true)
         {
-            int count = Program.CR.TryParseCR();
-            if (count != 0)
+            int number = Program.CR.TryParseCR();
+            if (number != 0)
             {
-                var ok = TaskDZ.FirstOrDefault(x => x.id == count);
+                var ok = TaskDZ.FirstOrDefault(x => x.id == number);
                 if (ok is not null)
                 {
                     ok.RUN();
@@ -62,27 +61,10 @@ internal class Program
             }
         }
     }
-
-    //static void GetTasks(out List<Ilesson> TaskDZ)
-    //{
-    //    TaskDZ = new()
-    //    {
-    //        new LinkedListNewClass(),
-    //        new PointStructDoubleClassOrStructRUN(),
-    //        new HashSetClass(),
-    //        new TreeClass(),
-    //        new DFSandBFS(),
-    //        //служебный класс его не учитываем в реализации
-    //        new ExitClass(),
-
-    //    };
-    //}
     /// <summary>
-    ///  Метод добавляет  в список типы классов
+    ///  Метод добавляет  в список типы классов из Dll c дом.заданием по теме Алгоритмы
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    /// <param name="TaskDZ"></param>
-    /// <param name="ClassTypeLib"></param>
     static void GetTasks<T>(ref List<Ilesson> TaskDZ, T ClassTypeLib) where T : Ilesson
     {
         TaskDZ.Add(ClassTypeLib);
