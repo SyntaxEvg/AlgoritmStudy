@@ -7,13 +7,15 @@ public class TasksНumberОptions : Ilesson
 {
     static int[] ArrayINT;
     public int id => 7;
-    public string Descprition => "7)Реализовать алгоритм [задачи на количество вариантов] и вывод количества вариантов для последовательности [1..100]";
+    public string Descprition => "7)Реализовать алгоритм\n[задачи на количество вариантов]\n" +
+        "и вывод количества вариантов\n" +
+        " для последовательности [1..100]";
 
     public void RUN()
     {
         Stopwatch stopwatch = new();
         int numM = 0;
-        Console.WriteLine("1_Рекурсия\n2_Не рекурсия");
+        Console.WriteLine("1_Рекурсия\n2_Не рекурсивный подход");
         while (true)
         {
             var a = String.Intern(Console.ReadLine());
@@ -25,6 +27,7 @@ public class TasksНumberОptions : Ilesson
                 AlgoritmRecurs100number();
                 stopwatch.Stop();
                 OutConsoleElipsoid(ref stopwatch);
+                break;
             }
             else if (numM > 0 && numM == 2)
             {
@@ -33,8 +36,7 @@ public class TasksНumberОptions : Ilesson
                 AlgoritmNoRecurs100number();
                 stopwatch.Stop();
                 OutConsoleElipsoid(ref stopwatch);
-
-
+                break;
             }
         }
     }
