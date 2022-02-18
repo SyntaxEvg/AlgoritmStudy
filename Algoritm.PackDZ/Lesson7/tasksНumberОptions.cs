@@ -5,10 +5,7 @@ using System.Diagnostics;
 
 public class TasksНumberОptions : Ilesson
 {
-    public static IConsole_ReadLine CR = new AlgoritmBaseConsole();
-    //Реализуйте класс двоичного дерева поиска с операциями вставки, удаления, поиска.
-    ///Дерево должно быть сбалансированным(это требование не обязательно).
-    /// Также напишите метод вывода в консоль дерева, чтобы увидеть, насколько корректно работает ваша реализация.
+    static int[] ArrayINT;
     public int id => 7;
     public string Descprition => "7)Реализовать алгоритм [задачи на количество вариантов] и вывод количества вариантов для последовательности [1..100]";
 
@@ -25,9 +22,9 @@ public class TasksНumberОptions : Ilesson
             {
                 stopwatch = new();
                 stopwatch.Start();
-                    AlgoritmRecurs100number();
+                AlgoritmRecurs100number();
                 stopwatch.Stop();
-                Console.WriteLine($"{stopwatch.Elapsed}");
+                OutConsoleElipsoid(ref stopwatch);
             }
             else if (numM > 0 && numM == 2)
             {
@@ -35,13 +32,24 @@ public class TasksНumberОptions : Ilesson
                 stopwatch.Start();
                 AlgoritmNoRecurs100number();
                 stopwatch.Stop();
-                Console.WriteLine($"{stopwatch.Elapsed}");
-               
+                OutConsoleElipsoid(ref stopwatch);
+
+
             }
         }
     }
-    static int[] ArrayINT;
-    public static void AlgoritmRecurs100number()
+
+    private void OutConsoleElipsoid(ref Stopwatch stopwatch)
+    {
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.WriteLine($"{stopwatch.Elapsed}");
+        Console.ForegroundColor = ConsoleColor.White;
+    }
+
+    /// <summary>
+    ///  вывод количества вариантов для последовательности Рекурсивный
+    /// </summary>
+    static void AlgoritmRecurs100number()
     {
         ArrayINT = new int[101];
         int num = 0;
@@ -67,8 +75,8 @@ public class TasksНumberОptions : Ilesson
        
 
     }
-    private static int Recursive_method(int num)
-    {  // ------------------------------------- Recursive_method to find minimal variable
+     static int Recursive_method(int num)
+    { 
         if (ArrayINT[num] == 0)
             if (num == 1) 
                 ArrayINT[num] = 1; 
@@ -76,7 +84,10 @@ public class TasksНumberОptions : Ilesson
                 ArrayINT[num] = Recursive_method(num - 1) +((num % 2 == 0) ? Recursive_method(num / 2) : 0);
         return ArrayINT[num];
     }
-    public static void AlgoritmNoRecurs100number()
+    /// <summary>
+    /// вывод количества вариантов для последовательности Без Рекурсивный
+    /// </summary>
+    static void AlgoritmNoRecurs100number()
     {      
         ArrayINT = new int[101];
         for (int i = 0; i <= 100; i++)
