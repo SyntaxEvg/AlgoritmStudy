@@ -3,6 +3,10 @@ using Algoritm.Lesson4;
 
 public class TreeClass : Ilesson
 {
+    public TreeClass()
+    {
+
+    }
     //Реализуйте класс двоичного дерева поиска с операциями вставки, удаления, поиска.
     ///Дерево должно быть сбалансированным(это требование не обязательно).
     /// Также напишите метод вывода в консоль дерева, чтобы увидеть, насколько корректно работает ваша реализация.
@@ -25,7 +29,7 @@ public class TreeClass : Ilesson
                 int.TryParse(spitStr[1], out numM);
                 if (l > 0 && numM > 0)
                 {
-                    MTree(ref l, ref numM);
+                    Tree_List(ref l, ref numM);
                 }
 
             }
@@ -36,7 +40,7 @@ public class TreeClass : Ilesson
         }
     }
 
-    private void MTree(ref int l, ref int numM)
+    private void Tree_List(ref int l, ref int numM)
     {
         Tree tree = new Tree(l, numM);
         Console.WriteLine("Commands");

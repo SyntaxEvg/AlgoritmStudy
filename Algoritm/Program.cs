@@ -25,11 +25,15 @@ internal class Program
             {
                 foreach (Type item in type.GetInterfaces())
                 {
-                        Ilesson ClassTypeLib = (Ilesson)Activator.CreateInstance(type);
-                        if (ClassTypeLib is not null)
-                        {
-                            GetTasks(ref TaskDZ, ClassTypeLib);
-                        }
+                    if (item.Name == "Ilesson")
+                    {
+                            Ilesson ClassTypeLib = (Ilesson)Activator.CreateInstance(type);
+                            if (ClassTypeLib is not null)
+                            {
+                                GetTasks(ref TaskDZ, ClassTypeLib);
+                            }
+                        
+                    }
                 }
             }
         }
@@ -40,6 +44,7 @@ internal class Program
             return;
         }
 
+        TaskDZ= TaskDZ.OrderBy(x=>x.id).ToList();
         Console.WriteLine($"Выбрать задания от {TaskDZ.First().id} до {TaskDZ.Count - 1} или {TaskDZ.Last().id}- если хотите выйти из программы");
         foreach (var item in TaskDZ)
         {

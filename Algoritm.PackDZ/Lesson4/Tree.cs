@@ -13,6 +13,11 @@ namespace Algoritm.Lesson4
         private int length;
         private int _maxLength;
 
+        public Tree()
+        {
+
+        }
+
         public Tree(int length, int NumM)
         {
             this.length = length;

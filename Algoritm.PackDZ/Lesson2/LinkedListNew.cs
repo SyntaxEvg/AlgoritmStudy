@@ -11,6 +11,10 @@ namespace Algoritm.Lesson2
 
     public class LinkedListNewClass : Ilesson
     {
+        public LinkedListNewClass()
+        {
+
+        }
         public int id { get => 1; }
         public string Descprition { get => "Двусвязный список"; }
 
